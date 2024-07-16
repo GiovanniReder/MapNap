@@ -6,7 +6,7 @@ import "../css/NavbarMapNap.css";
 function NavbarMapNap() {
   return (
     <>
-      <Navbar className="navbarContainer">
+      <Navbar className="navbarContainer fixed-top">
         <Container>
           <Navbar.Brand className="d-flex" href="#home">
             <img src={logo} width="30" height="30" className="logoSito d-inline-block align-top" alt="MapNapLogo" />

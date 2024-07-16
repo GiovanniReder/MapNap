@@ -9,7 +9,14 @@ export default function App() {
       <NavbarMapNap />
       <div className="container">
         <div className="row">
-          <div className=" d-none d-lg-block col-md-2 col-xl-3">
+          <div className=" listmap-aside d-none d-lg-block col-md-2 col-xl-3">
+            <CardCamping />
+            <CardCamping />
+            <CardCamping />
+            <CardCamping />
+            <CardCamping />
+            <CardCamping />
+            <CardCamping />
             <CardCamping />
           </div>
           <div className=" col-md-2 col-xl-1"></div>
