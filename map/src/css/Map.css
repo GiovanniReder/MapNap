@@ -5,13 +5,13 @@
 }
 #root {
   height: 100vh;
-  padding: 100px;
+  padding: 40px;
   width: 100%;
-  height: 40%;
 }
 /* sizing of map leaflet*/
 .leaflet-container {
   height: 100vh;
+  width: 100%;
 }
 .mappaContainer {
   padding: 100px;
