@@ -1,9 +1,11 @@
 import "leaflet/dist/leaflet.css";
 import Map from "./components/Map";
 import CardCamping from "./components/CardCamping";
+import NavbarMapNap from "./components/NavbarMapNap";
 export default function App() {
   return (
     <>
+      <NavbarMapNap />
       <div className="container">
         <div className="row">
           <div className=" d-none d-lg-block col-md-2 col-xl-3">

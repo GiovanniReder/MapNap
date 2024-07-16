@@ -3,11 +3,11 @@
   margin: 0;
   padding: 0;
 }
-#root {
+/* #root {
   height: 100vh;
   padding: 40px;
   width: 100%;
-}
+} */
 /* sizing of map leaflet*/
 .leaflet-container {
   height: 100vh;
