@@ -4,7 +4,7 @@ import "../css/CardCamping.css";
 
 const CardCamping = () => {
   return (
-    <Card className="border  border-2 border-success" style={{ width: "19rem" }}>
+    <Card className="border   border-2 border-success" style={{ width: "19rem" }}>
       <Card.Img
         variant="top"
         src="https://www.habitante.it/wp-content/uploads/2019/07/shutterstock_649280029-1-e1562258471502.jpg"

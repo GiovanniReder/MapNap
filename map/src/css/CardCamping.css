@@ -1,7 +1,9 @@
 .imageStyle {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .logoStyle {
   max-width: 15%;

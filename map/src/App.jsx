@@ -2,6 +2,7 @@ import "leaflet/dist/leaflet.css";
 import Map from "./components/Map";
 import CardCamping from "./components/CardCamping";
 import NavbarMapNap from "./components/NavbarMapNap";
+import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
@@ -15,9 +16,9 @@ export default function App() {
           <div className="p-0 col-12 col-md-8 col-xl-8">
             <Map />
           </div>
-          <p>testo</p>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
