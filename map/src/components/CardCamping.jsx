@@ -17,7 +17,7 @@ const CardCamping = () => {
             variant="top"
             src="https://images.vexels.com/media/users/3/128996/isolated/preview/05b6f24fdd179e6be9df30522d2843f9-vintage-camping-rounded-seal.png"
           />
-          <Card.Title className="ms-1">La Campeggia</Card.Title>
+          <Card.Title className="ms-1 fs-6">Camping Villaggio dei Fiori sa</Card.Title>
         </div>
         <Card.Text>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto consequatur vitae iusto maiores accus
