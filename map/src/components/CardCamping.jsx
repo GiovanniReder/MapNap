@@ -9,11 +9,13 @@ const CardCamping = () => {
   useEffect(() => {
     const fetchCampings = async () => {
       try {
-        const response = await fetch("http://localhost:3001/camp", {
+        const apiUrl = process.env.REACT_APP_API_URL;
+        const bearerToken = process.env.REACT_APP_BEARER_TOKEN;
+
+        const response = await fetch(`${apiUrl}/camp`, {
           method: "GET",
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjE2NDYyMDEsImV4cCI6MTcyMjI1MTAwMSwic3ViIjoiZmU3MjIzNDYtNjQ2Yy00NWM3LTgxMDUtOGNjM2MyODZlYWQ1In0.2keT0kuWquaWehxddNoUNb9oKN_--ww0Cl-bfP1xUDM",
+            Authorization: `Bearer ${bearerToken}`,
             "Content-Type": "application/json",
           },
         });
