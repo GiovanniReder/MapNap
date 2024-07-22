@@ -6,13 +6,11 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, point } from "leaflet";
 import markerPng from "../assets/redMarker.png"; // Usa import invece di require
 
-// crea icona personalizzata
 const customIcon = new Icon({
   iconUrl: markerPng,
-  iconSize: [38, 38], // dimensione dell'icona
+  iconSize: [38, 38],
 });
 
-// icona cluster personalizzata
 const createClusterCustomIcon = function (cluster) {
   return new divIcon({
     html: `<span class="cluster-icon">${cluster.getChildCount()}</span>`,
@@ -27,13 +25,11 @@ const Map = () => {
   useEffect(() => {
     const fetchCampings = async () => {
       try {
-        const apiUrl = process.env.REACT_APP_API_URL;
-        const bearerToken = process.env.REACT_APP_BEARER_TOKEN;
-
-        const response = await fetch(`${apiUrl}/camp`, {
+        const response = await fetch("http://localhost:3001/camp", {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${bearerToken}`,
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjE2NDYyMDEsImV4cCI6MTcyMjI1MTAwMSwic3ViIjoiZmU3MjIzNDYtNjQ2Yy00NWM3LTgxMDUtOGNjM2MyODZlYWQ1In0.2keT0kuWquaWehxddNoUNb9oKN_--ww0Cl-bfP1xUDM",
             "Content-Type": "application/json",
           },
         });
@@ -67,7 +63,6 @@ const Map = () => {
               <Popup>
                 <strong>{camping.name}</strong>
                 <br />
-                {camping.description}
               </Popup>
             </Marker>
           ))}

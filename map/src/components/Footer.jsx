@@ -16,7 +16,7 @@ const Footer = () => {
             <p className="text-white">Comunity</p>
             <p className="text-white">Lavora con noi</p>
           </div>
-          <div className="col-3"></div>
+
           <div className="col-3">
             <p className="text-white">SOCIAL</p>
             <div>
