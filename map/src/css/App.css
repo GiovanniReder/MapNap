@@ -1,0 +1,6 @@
+.aside-container {
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-color: rgba(26, 31, 57, 0.2) transparent;
+  scrollbar-width: thin;
+}
