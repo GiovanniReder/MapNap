@@ -8,6 +8,9 @@ const CardCamping = () => {
   const [campings, setCampings] = useState([]);
 
   const navigate = useNavigate();
+  const handleClick = (camping) => {
+    navigate(`/Info/${camping.id}`);
+  };
 
   useEffect(() => {
     const fetchCampings = async () => {
@@ -35,9 +38,6 @@ const CardCamping = () => {
     fetchCampings();
   }, []);
 
-  const handleClick = (camping) => {
-    navigate(`/Info/${camping.id}`);
-  };
   return (
     <div>
       {campings.map((camping) => (
