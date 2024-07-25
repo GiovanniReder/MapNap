@@ -47,11 +47,11 @@ const InfoCamp = () => {
 
   return (
     <div>
-      <div key={camping.id} className=" p-5 mt-5">
+      <div key={camping.id} className="InfoContainer mb-5">
         <Card.Body>
           <h2 className="fs-3 text-white">{camping.name}</h2>
-          <img src={camping.image} className="imageStyle" />
-          <p className="text-white my-5">{camping.description}</p>
+          <img style={{ maxWidth: "70%" }} src={camping.image} className="imageStyle" />
+          <p className="text-white  my-5">{camping.description}</p>
         </Card.Body>
       </div>
     </div>

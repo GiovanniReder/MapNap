@@ -51,13 +51,11 @@ const Map = () => {
   return (
     <div className="map-container">
       <MapContainer center={[43.819825, 7.774883]} zoom={13} className="map-container">
-        {/* OPEN STREET MAPS TILES */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MarkerClusterGroup chunkedLoading iconCreateFunction={createClusterCustomIcon}>
-          {/* Mapping attraverso i campeggi ottenuti dalla fetch */}
           {campings.map((camping) => (
             <Marker key={camping.id} position={[camping.latitude, camping.longitude]} icon={customIcon}>
               <Popup>
