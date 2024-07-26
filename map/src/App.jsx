@@ -5,6 +5,7 @@ import CardCamping from "./components/CardCamping";
 import NavbarMapNap from "./components/NavbarMapNap";
 import Footer from "./components/Footer";
 import InfoCamp from "./components/InfoCamp";
+import Homepage from "./components/Homepage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -15,8 +16,9 @@ export default function App() {
         <div className="container">
           <div className="row">
             <Routes>
+              <Route path="/" element={<Homepage />} />
               <Route
-                path="/"
+                path="/Map"
                 element={
                   <>
                     <div className="aside-container d-none d-md-block col-md-4 col-xl-4">
