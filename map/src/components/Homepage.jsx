@@ -1,42 +1,19 @@
 import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
+
+import HomepageCarousel from "./HomepageCarousel";
 function Homepage() {
   return (
     <>
-      <div className=" d-flex  justify-content-center ">
-        <h2 className="text-white mb-5">Cerca i migliori campeggi </h2>
+      <div className=" d-flex  justify-content-center  ">
+        <h2 className="text-white mb-3 fs-1">Cerca i migliori campeggi</h2>
       </div>
+      <p className=" d-flex  justify-content-center text-white mt-0 mb-5">
+        dove passare notti incredibili con la tua tenda, il tuo van o camper.
+      </p>
       <div className=" d-flex  justify-content-center ">
         <Form.Control className="w-75" type="email" placeholder="Città" />
       </div>
-      <div className="d-none d-md-flex g-3">
-        <Card className="bg-transparent border border-0 my-4 mx-2" style={{ width: "32%", height: "30%" }}>
-          <Card.Img
-            variant="top"
-            src="https://www.allperfectstories.com/wp-content/uploads/2021/08/camping-in-Switzerland-scaled.jpg"
-          />
-          <Card.Body>
-            <Card.Text className="text-white">
-              Vivi l'esperienza di dormire in mezzo alla natura ma in totale sicurezza e comodità.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-        <Card className="bg-transparent border border-0 my-4 mx-2" style={{ width: "32%", height: "30%" }}>
-          <Card.Img
-            variant="top"
-            src="https://campspot.blog/wp-content/uploads/2022/07/Pet-friendly-campgrounds-header-1-1200x800.jpg"
-          />
-          <Card.Body>
-            <Card.Text className="text-white">Porta in campeggio con te anche i tuoi amici a 4 zampe</Card.Text>
-          </Card.Body>
-        </Card>
-        <Card className="bg-transparent border border-0 my-4 mx-2" style={{ width: "32%", height: "30%" }}>
-          <Card.Img variant="top" src="https://campingkidz.nl/images/camping-met-kind.jpg" />
-          <Card.Body>
-            <Card.Text className="text-white">Adatto anche ai più piccoli</Card.Text>
-          </Card.Body>
-        </Card>
-      </div>
+      <HomepageCarousel />
     </>
   );
 }
