@@ -18,8 +18,3 @@
 .text-white {
   margin: 0 10px;
 }
-@media (max-width: 768px) {
-  .map-container {
-    display: none;
-  }
-}

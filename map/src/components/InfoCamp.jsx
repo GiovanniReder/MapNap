@@ -72,7 +72,7 @@ const InfoCamp = () => {
     <div key={camping.id} className="InfoContainer mb-5">
       <div className="InfoContent">
         <Card.Body>
-          <h2 className="fs-3 text-white">{camping.name}</h2>
+          <h2 className="fs-3 my-3 text-white">{camping.name}</h2>
           <img style={{ maxWidth: "60%" }} src={camping.image} alt={camping.name} />
           <p className="text-white my-5">{camping.description}</p>
           <div className="d-flex">
@@ -108,7 +108,7 @@ const InfoCamp = () => {
           </div>
         </Card.Body>
       </div>
-      <div className="MapContainer d-none d-md-block">
+      <div style={{ width: "100px" }} className="MapContainer d-none d-md-block">
         <MapContainer center={[camping.latitude, camping.longitude]} zoom={13}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
