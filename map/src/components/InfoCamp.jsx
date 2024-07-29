@@ -26,15 +26,16 @@ const InfoCamp = () => {
     });
   };
 
+  const token = import.meta.env.VITE_BEARER_TOKEN;
+  const api = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchCamping = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/camp/${campingId}`, {
+        const response = await fetch(`${api}/camp/${campingId}`, {
           method: "GET",
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjIyNTQyNTQsImV4cCI6MTcyMjg1OTA1NCwic3ViIjoiZmU3MjIzNDYtNjQ2Yy00NWM3LTgxMDUtOGNjM2MyODZlYWQ1In0.zAlvUa4MEVnE4F4hVBv6JwX6x7nYmGtElXopV-CI1-8",
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
         });
 
