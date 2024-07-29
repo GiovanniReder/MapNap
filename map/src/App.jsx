@@ -6,6 +6,7 @@ import NavbarMapNap from "./components/NavbarMapNap";
 import Footer from "./components/Footer";
 import InfoCamp from "./components/InfoCamp";
 import Homepage from "./components/Homepage";
+import CityForm from "./components/CityForm";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
                 path="/Map"
                 element={
                   <>
+                    <CityForm />
                     <div className="aside-container d-none d-md-block col-md-4 col-xl-4">
                       <CardCamping />
                     </div>

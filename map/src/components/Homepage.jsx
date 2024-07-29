@@ -1,6 +1,8 @@
-import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "../css/Homepage.css";
+import CityForm from "./CityForm";
 
-import HomepageCarousel from "./HomepageCarousel";
+// import HomepageCarousel from "./HomepageCarousel";
 function Homepage() {
   return (
     <>
@@ -10,10 +12,20 @@ function Homepage() {
       <p className=" d-flex  justify-content-center text-white mt-0 mb-5">
         dove passare notti incredibili con la tua tenda, il tuo van o camper.
       </p>
-      <div className=" d-flex  justify-content-center ">
-        <Form.Control className="w-75" type="email" placeholder="Città" />
+      <CityForm />
+
+      <div className="d-flex  justify-content-center">
+        <h2 className="mx-auto text-white">Oppure clicca qui sotto per andare direttamente alla mappa</h2>
       </div>
-      <HomepageCarousel />
+      <div className="d-flex my-4  justify-content-center">
+        <Button style={{ width: "10%" }} className="mb-4" variant="light">
+          <a href="/Map" className="custom-link">
+            Vai alla mappa
+          </a>
+        </Button>
+      </div>
+
+      {/* <HomepageCarousel /> */}
     </>
   );
 }

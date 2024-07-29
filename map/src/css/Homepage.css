@@ -1,1 +1,9 @@
+.custom-link {
+  color: inherit;
+  text-decoration: none;
+}
 
+.custom-link:hover {
+  color: inherit;
+  text-decoration: none;
+}

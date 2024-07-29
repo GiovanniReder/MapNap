@@ -4,7 +4,7 @@ import "../css/Map.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, point } from "leaflet";
-import markerPng from "../assets/redMarker.png"; // Usa import invece di require
+import markerPng from "../assets/redMarker.png";
 
 const customIcon = new Icon({
   iconUrl: markerPng,
@@ -19,17 +19,21 @@ const createClusterCustomIcon = function (cluster) {
   });
 };
 
+const token = import.meta.env.VITE_BEARER_TOKEN;
+const api = import.meta.env.VITE_API_URL;
+console.log(token);
+console.log(api);
+
 const Map = () => {
   const [campings, setCampings] = useState([]);
 
   useEffect(() => {
     const fetchCampings = async () => {
       try {
-        const response = await fetch("http://localhost:3001/camp", {
+        const response = await fetch(`${api}/camp`, {
           method: "GET",
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjE2NDYyMDEsImV4cCI6MTcyMjI1MTAwMSwic3ViIjoiZmU3MjIzNDYtNjQ2Yy00NWM3LTgxMDUtOGNjM2MyODZlYWQ1In0.2keT0kuWquaWehxddNoUNb9oKN_--ww0Cl-bfP1xUDM",
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
         });

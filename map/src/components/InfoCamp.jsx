@@ -33,7 +33,7 @@ const InfoCamp = () => {
           method: "GET",
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjE2NDYyMDEsImV4cCI6MTcyMjI1MTAwMSwic3ViIjoiZmU3MjIzNDYtNjQ2Yy00NWM3LTgxMDUtOGNjM2MyODZlYWQ1In0.2keT0kuWquaWehxddNoUNb9oKN_--ww0Cl-bfP1xUDM",
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MjIyNTQyNTQsImV4cCI6MTcyMjg1OTA1NCwic3ViIjoiZmU3MjIzNDYtNjQ2Yy00NWM3LTgxMDUtOGNjM2MyODZlYWQ1In0.zAlvUa4MEVnE4F4hVBv6JwX6x7nYmGtElXopV-CI1-8",
             "Content-Type": "application/json",
           },
         });
