@@ -26,13 +26,13 @@ function Register() {
               <Form.Control type="email" placeholder="Inserisci il tuo username" />
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Email </Form.Label>
-                <Form.Control type="email" placeholder="Inserisci la tua email" autoFocus />
+                <Form.Control type="password" placeholder="Inserisci la tua email" autoFocus />
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="inserisci la tua password" />
                 <Form.Label>Nome </Form.Label>
-                <Form.Control type="email" placeholder="Inserisci il tuo nome" autoFocus />
+                <Form.Control type="text" placeholder="Inserisci il tuo nome" autoFocus />
                 <Form.Label>Cognome </Form.Label>
-                <Form.Control type="email" placeholder="Inserisci il tuo cognome" autoFocus />
+                <Form.Control type="text" placeholder="Inserisci il tuo cognome" autoFocus />
               </Form.Group>
             </Form.Group>
           </Form>
