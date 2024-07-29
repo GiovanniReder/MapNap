@@ -21,8 +21,6 @@ const createClusterCustomIcon = function (cluster) {
 
 const token = import.meta.env.VITE_BEARER_TOKEN;
 const api = import.meta.env.VITE_API_URL;
-console.log(token);
-console.log(api);
 
 const Map = () => {
   const [campings, setCampings] = useState([]);

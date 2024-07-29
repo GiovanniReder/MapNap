@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../assets/icona.png";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-
+import Register from "./Register";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
@@ -43,13 +43,14 @@ function NavbarMapNap() {
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
                       <Form.Label>Inserisci la tua password</Form.Label>
                       <Form.Control type="password" placeholder="Password" />
+                      <a className="my-5" href="">
+                        Password dimenticata
+                      </a>
                     </Form.Group>
                   </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button variant="success" onClick={handleClose}>
-                    Registrati
-                  </Button>
+                  <Register />
                   <Button variant="secondary" onClick={handleClose}>
                     Chiudi
                   </Button>
