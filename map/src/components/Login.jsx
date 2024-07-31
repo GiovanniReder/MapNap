@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-
+import Register from "./Register";
 function Login() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
@@ -40,7 +40,7 @@ function Login() {
 
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
+      <Button className="me-5" variant="success" onClick={handleShow}>
         Login
       </Button>
 
@@ -70,12 +70,15 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
+
             <Button variant="danger" onClick={handleClose}>
               Annulla
             </Button>
             <Button variant="success" type="submit">
               Login
             </Button>
+
+            <Register />
           </Form>
         </Modal.Body>
       </Modal>

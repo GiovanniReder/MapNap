@@ -23,7 +23,7 @@ export default function App() {
                 element={
                   <>
                     <CityForm />
-                    <div className="aside-container d-none d-md-block col-md-4 col-xl-4">
+                    <div className="aside-container  d-block col-md-4 col-xl-4">
                       <CardCamping />
                     </div>
                     <div className="p-0 col-12 col-md-8 col-xl-8">
