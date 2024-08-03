@@ -59,6 +59,7 @@ function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoFocus
+                autoComplete="username"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formPassword">
@@ -68,16 +69,16 @@ function Login() {
                 placeholder="Inserisci la tua password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
               />
             </Form.Group>
 
             <Button variant="danger" onClick={handleClose}>
               Annulla
             </Button>
-            <Button variant="success" type="submit">
+            <Button className="mx-2" variant="success" type="submit">
               Login
             </Button>
-
             <Register />
           </Form>
         </Modal.Body>

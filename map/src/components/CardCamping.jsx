@@ -11,10 +11,17 @@ const CardCamping = () => {
   const handleClick = (camping) => {
     navigate(`/Info/${camping.id}`);
   };
-  const token = import.meta.env.VITE_BEARER_TOKEN;
+  // const token = import.meta.env.VITE_BEARER_TOKEN;
   const api = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchCampings = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("No token found in local storage.");
+        return;
+      }
+
       try {
         const response = await fetch(`${api}/camp`, {
           method: "GET",
