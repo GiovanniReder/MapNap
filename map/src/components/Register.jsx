@@ -61,7 +61,7 @@ function Register() {
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={handleRegister}>
-              <Form.Group className="mb-3" controlId="registerUserName">
+              {/* <Form.Group className="mb-3" controlId="registerUserName">
                 <Form.Label>Nome utente</Form.Label>
                 <Form.Control
                   type="text"
@@ -70,7 +70,7 @@ function Register() {
                   onChange={(e) => setUserName(e.target.value)}
                   required
                 />
-              </Form.Group>
+              </Form.Group> */}
               <Form.Group className="mb-3" controlId="registerEmail">
                 <Form.Label>Inserisci il tuo indirizzo email</Form.Label>
                 <Form.Control

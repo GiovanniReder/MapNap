@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Register from "./Register";
+
 function Login() {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    const storedUserName = localStorage.getItem("userName");
+
+    if (storedToken && storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,8 +41,11 @@ function Login() {
 
       const data = await response.json();
       const token = data.accessToken;
+      const name = data.name;
       localStorage.setItem("token", token);
-      console.log("Token salvato correttamente nel local storage", token);
+      localStorage.setItem("userName", name);
+      console.log("Token inserito nel local storage: ", token, "Nome inserito nel local storage: ", name);
+      setUserName(name);
       handleClose();
     } catch (error) {
       setError(error.message);
@@ -41,7 +55,7 @@ function Login() {
   return (
     <>
       <Button className="me-5" variant="success" onClick={handleShow}>
-        Login
+        {userName || "Login"}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
