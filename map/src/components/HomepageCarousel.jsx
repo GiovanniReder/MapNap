@@ -98,31 +98,3 @@ function HomepageCarousel() {
 }
 
 export default HomepageCarousel;
-
-// 7. Costi e convenienza
-// Tariffe accessibili: Sebbene possa sembrare che dormire in mezzo alla natura sia gratuito, i campeggi offrono un ottimo rapporto qualità-prezzo considerando i servizi inclusi.
-// Risparmio di tempo: La presenza di servizi come negozi di generi alimentari e noleggio di attrezzature all'interno del campeggio può ridurre il tempo e lo sforzo necessario per organizzare l'esperienza di campeggio.
-// In sintesi, dormire in un campeggio offre una combinazione di sicurezza, comfort e convenienza che può migliorare significativamente l'esperienza di campeggio rispetto al dormire in mezzo alla natura selvaggia.
-
-// <Carousel className="mb-5 w-100 h-5 carosello">
-//   <Carousel.Item className="img-carousel" interval={3000}>
-//     <img className="d-block w-100 " src={FirstCarouselImage} alt="First slide" />
-//     <Carousel.Caption>
-//       <p className="shadow-text">
-//         Vivi l&#96;esperienza di dormire in mezzo alla natura ma in totale sicurezza e comodità.
-//       </p>
-//     </Carousel.Caption>
-//   </Carousel.Item>
-//   <Carousel.Item className="img-carousel" interval={3000}>
-//     <img className="d-block w-100 " src={SecondCarouselImage} alt="Second slide" />
-//     <Carousel.Caption>
-//       <p className="shadow-text">Porta in campeggio con te anche i tuoi amici a 4 zampe</p>
-//     </Carousel.Caption>
-//   </Carousel.Item>
-//   <Carousel.Item className="img-carousel" interval={3000}>
-//     <img className="d-block w-100 " src={ThirdCarouselImage} alt="Third slide" />
-//     <Carousel.Caption>
-//       <p className="shadow-text ">Adatto anche ai più piccoli</p>
-//     </Carousel.Caption>
-//   </Carousel.Item>
-// </Carousel>
