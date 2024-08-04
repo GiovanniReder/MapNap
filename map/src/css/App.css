@@ -5,3 +5,8 @@
   scrollbar-color: rgba(26, 31, 57, 0.2) transparent;
   scrollbar-width: thin;
 }
+@media (max-width: 768px) {
+  .map-container {
+    margin-top: 100px;
+  }
+}

@@ -57,7 +57,7 @@ const Map = () => {
   }, []);
 
   return (
-    <div className="map-container">
+    <div className="map-container mb-5">
       <MapContainer center={[43.819825, 7.774883]} zoom={13} className="map-container">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -74,6 +74,7 @@ const Map = () => {
           ))}
         </MarkerClusterGroup>
       </MapContainer>
+      <br />
     </div>
   );
 };

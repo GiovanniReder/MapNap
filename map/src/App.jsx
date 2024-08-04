@@ -26,7 +26,7 @@ export default function App() {
                     <div className="aside-container  d-block col-md-4 col-xl-4">
                       <CardCamping />
                     </div>
-                    <div className="p-0 col-12 col-md-8 col-xl-8">
+                    <div className="p-0 map-container col-12 col-md-8 col-xl-8">
                       <Map />
                     </div>
                   </>

@@ -51,7 +51,7 @@ const CardCamping = () => {
         <Card
           onClick={() => handleClick(camping)}
           key={camping.id}
-          className="border mb-2 border-2 border-success"
+          className="border mb-5 border-2 border-success"
           style={{ width: "90%" }}
         >
           <Card.Img variant="top" src={camping.image} className="imageStyle" />
@@ -66,6 +66,7 @@ const CardCamping = () => {
           </Card.Body>
         </Card>
       ))}
+      <br />
     </div>
   );
 };
