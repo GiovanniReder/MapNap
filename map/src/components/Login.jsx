@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import Register from "./Register";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 function Login() {
   const [show, setShow] = useState(false);
@@ -63,20 +65,39 @@ function Login() {
 
   return (
     <>
-      <Button className="me-5 d-flex" variant="success" onClick={handleShow}>
-        {userName ? (
-          <>
-            <img
-              src={avatar}
-              alt=""
-              style={{ width: "30px", height: "30px", borderRadius: "50%", marginRight: "10px" }}
-            />
-            {userName}
-          </>
-        ) : (
-          "Login"
-        )}
-      </Button>
+      {userName ? (
+        <DropdownButton
+          id="dropdown-basic-button"
+          drop="start"
+          title={
+            <div className="d-flex align-items-center">
+              <img
+                src={avatar}
+                alt=""
+                style={{ width: "30px", height: "30px", borderRadius: "50%", marginRight: "10px" }}
+              />
+              {userName}
+            </div>
+          }
+          className="me-5"
+        >
+          <Dropdown.Item href="#/settings">Impostazioni</Dropdown.Item>
+          <Dropdown.Item href="#/create-camp">Crea un campeggio</Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => {
+              localStorage.clear();
+              setUserName("");
+              setAvatar("");
+            }}
+          >
+            Esci
+          </Dropdown.Item>
+        </DropdownButton>
+      ) : (
+        <Button className="me-5" variant="success" onClick={handleShow}>
+          Login
+        </Button>
+      )}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
