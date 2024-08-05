@@ -10,13 +10,16 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [userName, setUserName] = useState(localStorage.getItem("userName") || "");
+  const [avatar, setAvatar] = useState(localStorage.getItem("avatar") || "");
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     const storedUserName = localStorage.getItem("userName");
+    const storedAvatar = localStorage.getItem("avatar");
 
     if (storedToken && storedUserName) {
       setUserName(storedUserName);
+      setAvatar(storedAvatar);
     }
   }, []);
 
@@ -40,12 +43,18 @@ function Login() {
       }
 
       const data = await response.json();
+      console.log("Response data:", data);
+
       const token = data.accessToken;
       const name = data.name;
+      const avatar = data.avatar;
       localStorage.setItem("token", token);
       localStorage.setItem("userName", name);
-      console.log("Token inserito nel local storage: ", token, "Nome inserito nel local storage: ", name);
+      localStorage.setItem("avatar", avatar);
+
       setUserName(name);
+      setAvatar(avatar);
+      console.log("Token e avatar salvati correttamente nel local storage", token, avatar);
       handleClose();
     } catch (error) {
       setError(error.message);
@@ -54,8 +63,19 @@ function Login() {
 
   return (
     <>
-      <Button className="me-5" variant="success" onClick={handleShow}>
-        {userName || "Login"}
+      <Button className="me-5 d-flex" variant="success" onClick={handleShow}>
+        {userName ? (
+          <>
+            <img
+              src={avatar}
+              alt=""
+              style={{ width: "30px", height: "30px", borderRadius: "50%", marginRight: "10px" }}
+            />
+            {userName}
+          </>
+        ) : (
+          "Login"
+        )}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -73,7 +93,6 @@ function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 autoFocus
-                autoComplete="username"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formPassword">
@@ -83,16 +102,16 @@ function Login() {
                 placeholder="Inserisci la tua password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
               />
             </Form.Group>
 
             <Button variant="danger" onClick={handleClose}>
               Annulla
             </Button>
-            <Button className="mx-2" variant="success" type="submit">
+            <Button variant="success" type="submit">
               Login
             </Button>
+
             <Register />
           </Form>
         </Modal.Body>
