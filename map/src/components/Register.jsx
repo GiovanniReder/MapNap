@@ -3,9 +3,11 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import Alert from "react-bootstrap/Alert";
 
 function Register() {
   const [show, setShow] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +45,11 @@ function Register() {
       console.log("Registrazione avvenuta con successo: ", data);
 
       handleClose();
+      setShowSuccess(true);
+
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
     } catch (error) {
       console.error("C'è stato un errore nella registrazione: ", error);
     }
@@ -118,7 +125,14 @@ function Register() {
           </Modal.Body>
         </Modal>
       </Navbar.Text>
+
+      {showSuccess && (
+        <Alert variant="success" onClose={() => setShowSuccess(false)} dismissible>
+          Registrazione effettuata 🎊
+        </Alert>
+      )}
     </>
   );
 }
+
 export default Register;
