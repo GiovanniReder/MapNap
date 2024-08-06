@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import Register from "./Register";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import "../css/Login.css";
 
 function Login() {
   const [show, setShow] = useState(false);
@@ -67,10 +68,10 @@ function Login() {
     <>
       {userName ? (
         <DropdownButton
-          id="dropdown-basic-button"
+          id="dropdown-basic-button dropdownLogin"
           drop="start"
           title={
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center  ">
               <img
                 src={avatar}
                 alt=""
@@ -79,7 +80,7 @@ function Login() {
               {userName}
             </div>
           }
-          className="me-5"
+          className="me-5 "
         >
           <Dropdown.Item href="#/settings">Impostazioni</Dropdown.Item>
           <Dropdown.Item href="#/create-camp">Crea un campeggio</Dropdown.Item>

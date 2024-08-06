@@ -16,7 +16,9 @@ function CityForm() {
           placeholder="Cerca i campeggi in una specifica città"
         />
         <Button className="ms-3 border" variant="success" type="submit">
-          <a href="/Map">Cerca</a>
+          <a style={{ color: "inherit", textDecoration: "none" }} href="http://localhost:5173/Map">
+            Cerca
+          </a>
         </Button>
       </Form.Group>
     </Form>
