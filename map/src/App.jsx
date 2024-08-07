@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import InfoCamp from "./components/InfoCamp";
 import Homepage from "./components/Homepage";
 import CityForm from "./components/CityForm";
+import Settings from "./components/Settings";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
                   }
                 />
                 <Route path="/Info/:campingId" element={<InfoCamp />} />
+                <Route path="/Settings" element={<Settings />} />
               </Routes>
             </div>
           </div>

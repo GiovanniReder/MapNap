@@ -8,7 +8,7 @@ import Alert from "react-bootstrap/Alert";
 function Register() {
   const [show, setShow] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -21,7 +21,7 @@ function Register() {
     e.preventDefault();
 
     const userData = {
-      userName,
+      username,
       email,
       password,
       name,
@@ -42,8 +42,10 @@ function Register() {
       }
 
       const data = await response.json();
-      console.log("Registrazione avvenuta con successo: ", data);
+      console.log("Registrazione avvenuta con successo: ", data.uuid);
 
+      localStorage.setItem("userId", data.uuid);
+      console.log(data.uuid);
       handleClose();
       setShowSuccess(true);
 
@@ -73,7 +75,7 @@ function Register() {
                 <Form.Control
                   type="text"
                   placeholder="Inserisci nome utente"
-                  value={userName}
+                  value={username}
                   onChange={(e) => setUserName(e.target.value)}
                   required
                 />

@@ -50,14 +50,20 @@ function Login() {
 
       const token = data.accessToken;
       const name = data.name;
+      const id = data.userId;
       const avatar = data.avatar;
       localStorage.setItem("token", token);
       localStorage.setItem("userName", name);
       localStorage.setItem("avatar", avatar);
-
+      localStorage.setItem("userId", id);
+      console.log("userId: ", id);
+      console.log("token: ", token);
+      console.log("avatar: ", avatar);
+      console.log("name: ", name);
       setUserName(name);
       setAvatar(avatar);
       console.log("Token e avatar salvati correttamente nel local storage", token, avatar);
+
       handleClose();
     } catch (error) {
       setError(error.message);
@@ -82,7 +88,7 @@ function Login() {
           }
           className="me-5 "
         >
-          <Dropdown.Item href="#/settings">Impostazioni</Dropdown.Item>
+          <Dropdown.Item href="/Settings">Impostazioni</Dropdown.Item>
           <Dropdown.Item href="#/create-camp">Crea un campeggio</Dropdown.Item>
           <Dropdown.Item
             onClick={() => {
