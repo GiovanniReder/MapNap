@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
+
 const Setting = () => {
   const [userData, setUserData] = useState({
     username: "",
@@ -17,8 +18,7 @@ const Setting = () => {
 
   const userId = localStorage.getItem("userId");
   const token = localStorage.getItem("token");
-  console.log("userId: ", userId);
-  console.log("token: ", token);
+
   useEffect(() => {
     if (!userId || !token) {
       console.error("User ID or token is missing from localStorage.");
@@ -31,6 +31,36 @@ const Setting = () => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleAvatarUpdate = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/utenti/${userId}/avatar`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ url: userData.avatar }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Errore nell'aggiornamento dell'avatar");
+      }
+
+      const data = await response.json();
+
+      console.log("Risposta dell'endpoint avatar:", data);
+      const avatarUrl = data.avatar; // Prendi direttamente l'URL dalla risposta
+
+      console.log("Avatar aggiornato con successo: ", avatarUrl);
+    } catch (error) {
+      console.error("C'è stato un errore nell'aggiornamento dell'avatar: ", error);
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -52,6 +82,8 @@ const Setting = () => {
 
       const data = await response.json();
       console.log("Profilo aggiornato con successo: ", data);
+
+      await handleAvatarUpdate();
 
       setShowSuccess(true);
       setTimeout(() => {
@@ -84,7 +116,7 @@ const Setting = () => {
         <Form.Group className="mb-3" controlId="email">
           <Form.Label className="text-white my-2">Email</Form.Label>
           <Form.Control
-            type="inserisci la nuova email"
+            type="email"
             placeholder="name@example.com"
             name="email"
             value={userData.email}
@@ -149,7 +181,7 @@ const Setting = () => {
       )}
       {showError && (
         <Alert variant="danger" onClose={() => setShowError(false)} dismissible>
-          errore nell&rsquo;aggiornamento del profilo. Riprovare.
+          errore nell&rsquo;aggiornamento dell&rsquo;avatar. Riprovare.
         </Alert>
       )}
     </div>
