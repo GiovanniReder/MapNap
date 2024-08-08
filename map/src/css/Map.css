@@ -4,14 +4,13 @@
   padding: 0;
 }
 #root {
-  height: 100vh;
-  padding: 100px;
-  width: 100%;
-  height: 40%;
+  background: rgb(0, 123, 196);
+  background: linear-gradient(180deg, rgba(0, 123, 196, 1) 0%, rgba(0, 147, 106, 1) 100%, rgba(255, 255, 255, 1) 100%);
 }
-/* sizing of map leaflet*/
+
 .leaflet-container {
   height: 100vh;
+  width: 100%;
 }
 .mappaContainer {
   padding: 100px;

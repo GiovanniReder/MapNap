@@ -1,0 +1,19 @@
+.btn-primary {
+  --bs-btn-bg: inherit;
+  --bs-btn-hover-bg: #009270;
+  border-color: transparent;
+  --bs-btn-active-bg: #009270;
+  --bs-btn-active-border-color: white;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  border-color: white;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+.dropstart .dropdown-toggle::before {
+  content: unset !important;
+}

@@ -1,0 +1,11 @@
+.imageStyle {
+  max-width: 100%;
+  height: auto;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.logoStyle {
+  max-width: 15%;
+  transform: translate(-12%, -104%);
+}
