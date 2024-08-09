@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import { CampingContext } from "./CardCamping";
 
 function CityForm() {
-  // let { campings } = useContext(CampingContext);
   const { search } = useContext(CampingContext);
 
   return (

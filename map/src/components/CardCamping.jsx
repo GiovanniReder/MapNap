@@ -69,47 +69,12 @@ export const CampingProvider = ({ children }) => {
 };
 
 const CardCamping = () => {
-  // const [campings, setCampings] = useState([]);
   const { filteredCampings } = useContext(CampingContext);
 
   const navigate = useNavigate();
   const handleClick = (camping) => {
     navigate(`/Info/${camping.id}`);
   };
-  // const token = import.meta.env.VITE_BEARER_TOKEN;
-  // const api = import.meta.env.VITE_API_URL;
-  // useEffect(() => {
-  //   const fetchCampings = async () => {
-  //     const token = localStorage.getItem("token");
-
-  //     if (!token) {
-  //       console.error("No token found in local storage.");
-  //       return;
-  //     }
-
-  //     try {
-  //       const response = await fetch(`${api}/camp`, {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-
-  //       const data = await response.json();
-  //       setCampings(data.content);
-  //     } catch (error) {
-  //       console.error("Fetch error:", error);
-  //     }
-  //   };
-  //   fetchCampings();
-  // }, []);
-
-  // useRef(() => (campingsProps = campings));
 
   return (
     <div>
