@@ -51,7 +51,7 @@ const Setting = () => {
       const data = await response.json();
 
       console.log("Risposta dell'endpoint avatar:", data);
-      const avatarUrl = data.avatar; // Prendi direttamente l'URL dalla risposta
+      const avatarUrl = data.avatar;
 
       console.log("Avatar aggiornato con successo: ", avatarUrl);
     } catch (error) {

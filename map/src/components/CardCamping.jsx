@@ -10,10 +10,10 @@ export const CampingContext = createContext();
 export const CampingProvider = ({ children }) => {
   let [campings, setCampings] = useState([]);
   let [filteredCampings, setFilteredCampings] = useState([]);
+  let [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const search = (event) => {
     const query = event.target.value.toLowerCase();
-    console.log(event);
 
     if (!query) {
       setCampings(campings);
@@ -24,8 +24,7 @@ export const CampingProvider = ({ children }) => {
 
     setFilteredCampings(results);
 
-    if (results.length === 0 || campings.every((x) => !x.place.toLowerCase().includes(event.target.value))) {
-      console.log;
+    if (results.length === 0 || campings.every((x) => !x.place.toLowerCase().includes(query))) {
       setFilteredCampings(campings);
     }
   };
@@ -38,6 +37,7 @@ export const CampingProvider = ({ children }) => {
 
       if (!token) {
         console.error("No token found in local storage.");
+        setIsAuthenticated(false);
         return;
       }
 
@@ -57,59 +57,38 @@ export const CampingProvider = ({ children }) => {
         const data = await response.json();
         setCampings(data.content);
         setFilteredCampings(data.content);
+        setIsAuthenticated(true);
       } catch (error) {
         console.error("Fetch error:", error);
+        setIsAuthenticated(false);
       }
     };
-    console.log(campings);
+
     fetchCampings();
   }, [api]);
 
-  return <CampingContext.Provider value={{ campings, filteredCampings, search }}>{children}</CampingContext.Provider>;
+  return (
+    <CampingContext.Provider value={{ campings, filteredCampings, search, isAuthenticated }}>
+      {children}
+    </CampingContext.Provider>
+  );
 };
 
 const CardCamping = () => {
-  // const [campings, setCampings] = useState([]);
-  const { filteredCampings } = useContext(CampingContext);
+  const { filteredCampings, isAuthenticated } = useContext(CampingContext);
 
   const navigate = useNavigate();
   const handleClick = (camping) => {
     navigate(`/Info/${camping.id}`);
   };
-  // const token = import.meta.env.VITE_BEARER_TOKEN;
-  // const api = import.meta.env.VITE_API_URL;
-  // useEffect(() => {
-  //   const fetchCampings = async () => {
-  //     const token = localStorage.getItem("token");
 
-  //     if (!token) {
-  //       console.error("No token found in local storage.");
-  //       return;
-  //     }
-
-  //     try {
-  //       const response = await fetch(`${api}/camp`, {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-
-  //       const data = await response.json();
-  //       setCampings(data.content);
-  //     } catch (error) {
-  //       console.error("Fetch error:", error);
-  //     }
-  //   };
-  //   fetchCampings();
-  // }, []);
-
-  // useRef(() => (campingsProps = campings));
+  if (!isAuthenticated) {
+    return (
+      <div className="text-center">
+        <h2 className="text-white">Effettua il Login per visualizzare i campeggi e ricarica la pagina.</h2>
+      </div>
+    );
+  }
 
   return (
     <div>

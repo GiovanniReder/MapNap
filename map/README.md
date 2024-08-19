@@ -1,8 +1,21 @@
-# React + Vite
+Backend:
+https://github.com/GiovanniReder/MapNap_Backend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MapNap
+MapNap è un'applicazione sviluppata come progetto finale di un corso Full Stack Developer. L'applicazione aiuta gli utenti a trovare campeggi dove passare la notte, fornendo informazioni dettagliate su ciascuna struttura come ad esempio indirizzo, cordinate, luogo etc...
 
-Currently, two official plugins are available:
+Funzionalità
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ricerca per Località:
+Inserisci il nome della città e visualizza una lista di campeggi disponibili.
+
+Visualizzazione Dettagliata:
+Clicca su un campeggio per vedere una pagina dedicata con tutte le informazioni.
+
+Mappa Interattiva:
+Visualizza i campeggi su una mappa interattiva per vedere esattamente dove si trovano.
+
+Tecnologie Utilizzate
+Frontend: React + Vite
+Backend: Java, Spring Boot
+Database: Postgresql + PgAdmin

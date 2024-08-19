@@ -4,7 +4,6 @@ import logo from "../assets/icona.png";
 
 import "../css/NavbarMapNap.css";
 import Login from "./Login";
-// import Register from "./Register";
 
 function NavbarMapNap() {
   return (
