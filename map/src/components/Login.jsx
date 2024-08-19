@@ -89,7 +89,7 @@ function Login() {
           className="me-5 "
         >
           <Dropdown.Item href="/Settings">Impostazioni</Dropdown.Item>
-          <Dropdown.Item href="#/create-camp">Crea un campeggio</Dropdown.Item>
+
           <Dropdown.Item
             onClick={() => {
               localStorage.clear();
