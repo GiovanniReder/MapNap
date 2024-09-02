@@ -6,6 +6,18 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, point } from "leaflet";
 import markerPng from "../assets/redMarker.png";
 
+navigator.geolocation.getCurrentPosition((position) => {
+  console.log(
+    `Latitude: ${position.coords.latitude},
+      Longitude: ${position.coords.longitude}`
+  );
+  {
+    (error) => {
+      console.error("Error getting location: ", error.message);
+    };
+  }
+});
+
 const customIcon = new Icon({
   iconUrl: markerPng,
   iconSize: [38, 38],
