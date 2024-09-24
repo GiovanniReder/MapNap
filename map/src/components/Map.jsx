@@ -6,18 +6,6 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { Icon, divIcon, point } from "leaflet";
 import markerPng from "../assets/redMarker.png";
 
-navigator.geolocation.getCurrentPosition((position) => {
-  console.log(
-    `Latitude: ${position.coords.latitude},
-      Longitude: ${position.coords.longitude}`
-  );
-  {
-    (error) => {
-      console.error("Error getting location: ", error.message);
-    };
-  }
-});
-
 const customIcon = new Icon({
   iconUrl: markerPng,
   iconSize: [38, 38],
@@ -35,6 +23,7 @@ const api = import.meta.env.VITE_API_URL;
 
 const Map = () => {
   const [campings, setCampings] = useState([]);
+  console.log(campings);
 
   useEffect(() => {
     const fetchCampings = async () => {
@@ -59,7 +48,14 @@ const Map = () => {
         }
 
         const data = await response.json();
-        setCampings(data.content);
+
+        if (data && Array.isArray(data)) {
+          setCampings(data);
+        } else if (data && data.content) {
+          setCampings(data.content);
+        } else {
+          console.error("Formato dei dati inaspettato:", data);
+        }
       } catch (error) {
         console.error("Fetch error:", error);
       }
@@ -76,14 +72,18 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <MarkerClusterGroup chunkedLoading iconCreateFunction={createClusterCustomIcon}>
-          {campings.map((camping) => (
-            <Marker key={camping.id} position={[camping.latitude, camping.longitude]} icon={customIcon}>
-              <Popup>
-                <strong>{camping.name}</strong>
-                <br />
-              </Popup>
-            </Marker>
-          ))}
+          {campings && campings.length > 0 ? (
+            campings.map((camping) => (
+              <Marker key={camping.id} position={[camping.latitude, camping.longitude]} icon={customIcon}>
+                <Popup>
+                  <strong>{camping.name}</strong>
+                  <br />
+                </Popup>
+              </Marker>
+            ))
+          ) : (
+            <p>Caricamento campeggi...</p>
+          )}
         </MarkerClusterGroup>
       </MapContainer>
       <br />
